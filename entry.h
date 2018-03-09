@@ -4,14 +4,14 @@
 #define NEWENTRY 0
 #define ADD 1
 
-
-//#include <mainwindow.h>
+#include <QObject>
+#include <QDate>
 #include <QDateTime>
 
 
-class Entry
+class Entry : public QObject
 {
-    //Q_OBJECT
+    Q_OBJECT
 public:
     Entry();
 
@@ -40,9 +40,9 @@ public:
     QString getSection() const;
     void setSection(const QString &value);
 
-//signals:
+signals:
 
-//public slots:
+public slots:
 
 
 
@@ -54,7 +54,6 @@ private:
     QString description;
     QDateTime datefrom;
     QDateTime dateto;
-
 
 };
 

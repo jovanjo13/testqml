@@ -8,7 +8,7 @@ ApplicationWindow {
     visible: true
     width: 800
     height: 480
-    title: qsTr("Test QML")
+    title: qsTr("Reservierungssystem")
 
     header:TabBar {
         id: bar
@@ -54,15 +54,8 @@ ApplicationWindow {
 
         }
 
-        Item {
+        Newentry{
 
-            Rectangle{
-                id: r3
-                width: 200
-                height: 200
-                color:  "green"
-
-            }
         }
 
         Add{

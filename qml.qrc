@@ -4,5 +4,6 @@
         <file>qtquickcontrols2.conf</file>
         <file>add/Add.qml</file>
         <file>Home.qml</file>
+        <file>add/Newentry.qml</file>
     </qresource>
 </RCC>
