@@ -6,6 +6,7 @@
 
 #include <QObject>
 #include <QDate>
+#include <QTime>
 #include <QDateTime>
 
 

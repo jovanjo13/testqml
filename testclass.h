@@ -11,6 +11,7 @@ class Testclass : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QDate curDate READ curDate WRITE setcurDate NOTIFY bla)
+    Q_PROPERTY(QList <Entry*> list READ list WRITE setList NOTIFY listChanged)
 public:
     explicit Testclass(QObject *parent = nullptr);
     Q_INVOKABLE QString get();
@@ -21,8 +22,13 @@ public:
     Q_INVOKABLE void http();
     QString dateToString(QDate d);
 
+    QList <Entry*> mlist;
+    QList <Entry*> list();
+    void setList(QList <Entry*> list);
+
 signals:
     void bla();
+    void listChanged();
 
 public slots:
 

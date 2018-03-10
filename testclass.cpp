@@ -8,10 +8,30 @@
 #include <QByteArray>
 #include <QString>
 
+#include "entry.h"
+
+
 
 
 Testclass::Testclass(QObject *parent) : QObject(parent)
 {
+    Entry * e1;
+    //Entry * e2;
+    e1->setFirstName(*new const QString("Max"));
+    e1->setLastName("Mustermann");
+    e1->setDescription("Description");
+    e1->setSection("Marketing");
+    QDateTime* dt1 = new QDateTime();
+    dt1->setDate(*new QDate(2018,10,10));
+    dt1->setTime(*new QTime(10,0,0,0));
+    e1->setDatefrom(*dt1);
+    QDateTime* dt2 = new QDateTime();
+    dt2->setDate(*new QDate(2018,10,10));
+    dt2->setTime(*new QTime(11,0,0,0));
+    e1->setDateto(*dt2);
+
+    mlist.append(e1);
+    //mlist.append(e2);
 
 }
 
@@ -71,3 +91,15 @@ void Testclass::http()
 QString Testclass::dateToString(QDate d){
     return QString::number(d.year()) + "-" + QString::number(d.month()) + "-" + QString::number(d.day());
 }
+
+QList<Entry *> Testclass::list()
+{
+    return mlist;
+}
+
+void Testclass::setList(QList<Entry *> list)
+{
+    mlist = list;
+}
+
+

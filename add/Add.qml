@@ -114,6 +114,10 @@ Item {
         x: 628
         y: 373
         text: qsTr("Save")
+        onClicked: {
+            //To do JS Code
+            console.log(textField3.text)
+        }
     }
 
 }

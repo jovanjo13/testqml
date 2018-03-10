@@ -53,6 +53,15 @@ Item {
 
         }
 
+        ListElement {
+            desc :  ""
+            res :   "Raum 2"
+            dfrom : "12.01.2018"
+            tfrom : "14:00"
+            tto :   "14:30"
+            dto :   "12.01.2018"
+        }
+
     }
 
     Calendar{
@@ -60,10 +69,11 @@ Item {
         y: 0
         width: 508
         height: 435
-        onClicked: {
+        onClicked: {genagen
            tc.curDate = date
            //text1.text = tc.curDate
            tc.http()
+
         }
     }
 
