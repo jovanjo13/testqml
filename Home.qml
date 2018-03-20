@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 1.4
 import Testclass 1.0
 
+
 Item {
     TableView {
         x: 0
@@ -54,7 +55,8 @@ Item {
         }
 
         ListElement {
-            desc :  ""
+
+            desc :  "Beides"
             res :   "Raum 2"
             dfrom : "12.01.2018"
             tfrom : "14:00"
@@ -64,22 +66,86 @@ Item {
 
     }
 
+
+
     Calendar{
         x: 292
         y: 0
         width: 508
         height: 435
-        onClicked: {genagen
+        onClicked: {
            tc.curDate = date
+           tc.setItems()
            //text1.text = tc.curDate
-           tc.http()
+           //tc.http()
+           var l = tc.list.toString()
+           myModel.set(0,{
+
+                           desc :   l,
+                           res :   "Raum 2",
+                           dfrom : "12.01.2018",
+                           tfrom : "14:00",
+
+
+
+
+                       })
+            //get_ressources()
+            get_list()
+
+
 
         }
+
+
+
+        function get_ressources(){
+            var url = "http://10.8.250.21:30000/"
+            var req = new XMLHttpRequest();
+            req.open("GET", url + "sql_get/resources");
+            req.onreadystatechange = function() {
+              if (req.readyState == XMLHttpRequest.DONE) {
+                // what you want to be done when request is successfull
+                  console.log(req.responseText)
+              }
+            }
+            req.onerror = function(){
+              // what you want to be done when request failed
+            }
+            req.send()
+        }
+
+        function get_list(){
+            var url = "http://10.8.250.21:30000/"
+            var req = new XMLHttpRequest();
+            req.open("POST", url + "sql_get");
+            req.setRequestHeader('Content-type','application/json');
+            //req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            req.onreadystatechange = function() {
+              if (req.readyState == XMLHttpRequest.DONE) {
+                // what you want to be done when request is successfull
+                  console.log(req.responseText)
+              }
+            }
+            req.onerror = function(){
+              // what you want to be done when request failed
+            }
+            //console.log(req.toString())
+            var d = {}
+            d.date = tc.dateToString(tc.curDate)
+            var str = JSON.stringify(d)
+            console.log(str)
+            req.send(str)
+        }
+
+
     }
 
     Testclass{
         id: tc
 
 
+
     }
 }
+

@@ -30,6 +30,7 @@ QString Entry::getFirstName() const
 
 void Entry::setFirstName(const QString &value)
 {
+
     firstName = value;
 }
 

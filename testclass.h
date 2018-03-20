@@ -20,11 +20,12 @@ public:
     void setcurDate(QDate d);
 
     Q_INVOKABLE void http();
-    QString dateToString(QDate d);
+    Q_INVOKABLE QString dateToString(QDate d);
 
     QList <Entry*> mlist;
     QList <Entry*> list();
     void setList(QList <Entry*> list);
+    Q_INVOKABLE void setItems();
 
 signals:
     void bla();
