@@ -45,6 +45,11 @@ void Testclass::setcurDate(QDate d)
     m_curDate = d;
 }
 
+QString Testclass::get_url()
+{
+    return url;
+}
+
 void Testclass::http()
 {
     QString url = "http://10.0.0.11:30000/";
